@@ -1,5 +1,11 @@
 package es.unizar.eina.vv6f.collatz;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
 
-public class SecuenciaCollatzTestSuite {
-	// TODO Suite JUnit que incluya las otras clases de tests
-}
+@RunWith(Suite.class)
+@Suite.SuiteClasses({
+    SecuenciaCollatzTestSiguiente.class,
+    SecuenciaCollatzTestLongitud.class,
+    IniciadorSecuenciaMasLargaTest.class
+})
+public class SecuenciaCollatzTestSuite { }

@@ -51,8 +51,19 @@ public class Main {
      *         tiene asociada la secuencia de Collatz más larga.
      */
     public static long iniciadorSecuenciaMasLarga(int limite) {
-        // TODO Implementar este método
-        return 0;
+        int indice_mayor_longitud = -1;
+        int mayor_longitud = -1;
+
+        int i = 1;
+        while ( i < limite){
+            int longitud_secuencia = new SecuenciaCollatz(i).longitud();
+            if(longitud_secuencia > mayor_longitud){
+                mayor_longitud = longitud_secuencia;
+                indice_mayor_longitud = i;
+            }
+            i++;
+        }
+        return indice_mayor_longitud;
     }
 
     /**
@@ -61,6 +72,6 @@ public class Main {
      * larga.
      */
     public static void main(String[] args) {
-        System.out.println(iniciadorSecuenciaMasLarga(LIMITE));
+        System.out.println(iniciadorSecuenciaMasLarga(0));
     }
 }

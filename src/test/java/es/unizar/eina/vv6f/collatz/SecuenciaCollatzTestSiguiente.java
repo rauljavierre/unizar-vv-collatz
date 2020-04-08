@@ -32,6 +32,16 @@ public class SecuenciaCollatzTestSiguiente {
         parametros.add(new Object[] {5, 10});
         parametros.add(new Object[] {16, 5});
         parametros.add(new Object[] {1,  1});
+
+        // Añado estos casos de prueba, aunque sean redundantes, puesto que
+        // se pueden deducir de las transparencias, y podemos considerar a
+        // estas como «test basis».
+        parametros.add(new Object[] { 40, 13 });
+        parametros.add(new Object[] { 20, 40 });
+        parametros.add(new Object[] { 10, 20 });
+        parametros.add(new Object[] { 8, 16 });
+        parametros.add(new Object[] { 4, 8 });
+        parametros.add(new Object[] { 2, 4 });
         return parametros;
     }
 

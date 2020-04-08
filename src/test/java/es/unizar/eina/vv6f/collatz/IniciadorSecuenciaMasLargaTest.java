@@ -29,6 +29,9 @@ public class IniciadorSecuenciaMasLargaTest {
     public static Iterable<Object[]> data() {
         List<Object[]> parametros = new ArrayList<Object[]>();
         parametros.add(new Object[] { 837799, 1_000_000});
+        // De cara al desarrollo, se podrían haber incluido otros casos de prueba
+        // con números más pequeños, que habría que haber derivado de alguna
+        // forma distinta al programa. En la clase del día 16 lo comentaré.
         parametros.add(new Object[] { -1, 0});
         return parametros;
     }

@@ -32,6 +32,19 @@ public class SecuenciaCollatzTestLongitud {
         parametros.add(new Object[] { 1,  1});
         parametros.add(new Object[] {-1,  0});
         parametros.add(new Object[] {-1, -1});
+
+        // Añado estos casos de prueba, aunque sean redundantes, puesto que
+        // se pueden deducir de las transparencias, y podemos considerar a
+        // estas como «test basis».
+        parametros.add(new Object[] { 9, 40 });
+        parametros.add(new Object[] { 8, 20 });
+        parametros.add(new Object[] { 7, 10 });
+        parametros.add(new Object[] { 6, 5 });
+        parametros.add(new Object[] { 5, 16 });
+        parametros.add(new Object[] { 4, 8 });
+        parametros.add(new Object[] { 3, 4 });
+        parametros.add(new Object[] { 2, 2 });
+
         return parametros;
     }
 

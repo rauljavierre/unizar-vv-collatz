@@ -3,6 +3,7 @@ package es.unizar.eina.vv6f.collatz;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 import java.util.ArrayList;
 import java.util.List;
 import static org.junit.Assert.*;
@@ -10,32 +11,37 @@ import static org.junit.Assert.*;
 @RunWith(Parameterized.class)
 public class SecuenciaCollatzTestLongitud {
 
-    // Utilizo Object porque no funciona con otro tipo de dato... ¿Por qué?
-    private Object esperado;
-    private Object entrada;
+    private long esperado;
+    private long entrada;
 
-    public SecuenciaCollatzTestLongitud(Object esperado, Object entrada){
+    public SecuenciaCollatzTestLongitud(long esperado, long entrada){
         this.esperado = esperado;
         this.entrada = entrada;
     }
 
-    @Parameterized.Parameters
+    // El tipo base devuelto por el método estático etiquetado con @Parameters
+    // tiene que ser siempre Object[]. El contenedor puede ser cualquier
+    // clase o interfaz que implemente Iterable. Java realiza muchas conversiones
+    // automáticas («boxing» y «unboxing) entre tipos primitivos y su clases
+    // equivalentes y el «runner» Parameterized de JUnit también a la hora de
+    // hacer «casting» de Objects a otras clases.
+    @Parameters
     public static Iterable<Object[]> data() {
         List<Object[]> parametros = new ArrayList<Object[]>();
-        parametros.add(new Object[] {(long) 10, (long) 13});
-        parametros.add(new Object[] {(long) 1, (long) 1});
-        parametros.add(new Object[] {(long) -1, (long) 0});
-        parametros.add(new Object[] {(long) -1, (long) -1});
+        parametros.add(new Object[] {10, 13});
+        parametros.add(new Object[] { 1,  1});
+        parametros.add(new Object[] {-1,  0});
+        parametros.add(new Object[] {-1, -1});
         return parametros;
     }
 
     @Test
     public void secuencia_collatz_longitud() throws InterruptedException {
-        if((long) entrada > 0){
-            assertEquals(esperado, (long) new SecuenciaCollatz((Long) entrada).longitud());
+        if(entrada > 0){
+            assertEquals(esperado, new SecuenciaCollatz(entrada).longitud());
         }
         else{
-            long respuesta_erronea = secuencia_collatz_test((long) entrada);
+            long respuesta_erronea = secuencia_collatz_test(entrada);
             assertEquals(esperado, respuesta_erronea);
         }
     }

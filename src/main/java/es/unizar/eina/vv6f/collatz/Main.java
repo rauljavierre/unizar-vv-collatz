@@ -72,6 +72,6 @@ public class Main {
      * larga.
      */
     public static void main(String[] args) {
-        System.out.println(iniciadorSecuenciaMasLarga(0));
+        System.out.println(iniciadorSecuenciaMasLarga(LIMITE));
     }
 }
